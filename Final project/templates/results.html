@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  
+  
+  
+  <link rel = "stylesheet" href = "../static/style.css"> 
+
+  
+</head>
+
+<body>
+
+<form class="form-wrapper cf">
+  	<input type="text" placeholder="Search here..." name="query">
+	  <button type="submit">Search</button>
+<table>
+
+    <tr><td><input class="p" type="radio" name="method" value="inverted_index"></td><td>Inverted index</td></tr>
+    <tr><td><input class="p" type="radio" name="method" value="word2vec"></td><td>Word2vec</td></tr>
+    <tr><td><input class="p" type="radio" name="method" value="doc2vec"></td><td>Doc2vec</td></tr>
+
+</table>
+</form>
+
+<p class="out">Результаты "{{query}}"</p>
+    {%for doc in results:%}
+        <a class="out" href={{doc[0]}}>{{doc[0][:50]}}...</a>
+        <p class="out">{{doc[1]}}</p>
+    {%endfor%}
+
+
+</body>
+
+</html>
